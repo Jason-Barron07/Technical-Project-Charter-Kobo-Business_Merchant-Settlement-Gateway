@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "sqlproj: Build Kobo-Fintech",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"c:/Users/Flash_QE/Desktop/QCTO/Projects/Technical-Project-Charter-Kobo-Business_Merchant-Settlement-Gateway/Kobo-Fintech/Kobo-Fintech.sqlproj"
+			],
+			"problemMatcher": "$sqlproj-problem-matcher",
+			"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "Builds the Kobo-Fintech SQL project"
+		}
+	]
+}
