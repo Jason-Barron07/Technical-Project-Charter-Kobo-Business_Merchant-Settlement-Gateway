@@ -2,9 +2,35 @@
   "info": {
     "_postman_id": "9bd579c1-62c4-4263-8882-d43084c1a499",
     "name": "KOBO API Automation",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "52064850",
-    "_collection_link": "https://go.postman.co/collection/52064850-9bd579c1-62c4-4263-8882-d43084c1a499?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "item": []
+  "item": [
+    {
+      "name": "sample Request",
+      "id": "20e63d12-d8b5-4c32-9a17-db54b3d8a4ce",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"walletId\": 10,\r\n  \"productId\": 1,\r\n  \"reference\": \"TASK2-LOWBAL-001\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/wallets/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "wallets",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
 }
