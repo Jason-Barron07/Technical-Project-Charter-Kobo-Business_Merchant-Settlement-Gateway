@@ -4,5 +4,1056 @@
     "name": "KOBO API Automation",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "item": []
+  "item": [
+    {
+      "name": "Financial & Distribution Logic",
+      "item": [
+        {
+          "name": "Data setup(5)",
+          "item": [
+            {
+              "name": "Login",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "6485fce4-023f-4ab9-a19d-1e5fdb2e72cc",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e202f84b-4d3b-448b-9f6f-62141688fa61",
+                    "exec": [
+                      "pm.test(\"Login success\", () => pm.response.to.have.status(200));\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.environment.set(\"token\", res.token);\r",
+                      "pm.environment.set(\"userId\", res.user.userId);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "960bf781-92ab-4dd9-a8e2-66b6858a8da7",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"kabo@kobo.co.za\",\r\n  \"password\": \"Password123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Products",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "071ce8dd-7e57-4b45-9a88-cfa460d6a4fa",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b8efd432-690d-420c-aaa4-74c990bd2d32",
+                    "exec": [
+                      "pm.test(\"Products fetched\", () => {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "// Store all products\r",
+                      "pm.environment.set(\"products\", JSON.stringify(res.data));\r",
+                      "\r",
+                      "// Initialize index\r",
+                      "pm.environment.set(\"productIndex\", 0);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "5718b2db-bd8d-4aad-8dd9-57a816eb9461",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "products"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Set Product Context",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e2eae0c3-b6a8-4427-8626-01513869a903",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "7589960b-140e-4165-9129-e1742d9f3dff",
+                    "exec": [
+                      "let products = JSON.parse(pm.environment.get(\"products\"));\r",
+                      "let index = parseInt(pm.environment.get(\"productIndex\"));\r",
+                      "\r",
+                      "let product = products[index];\r",
+                      "\r",
+                      "pm.environment.set(\"productId\", product.ProductID);\r",
+                      "pm.environment.set(\"faceValue\", product.FaceValue);\r",
+                      "\r",
+                      "const reference = \"REF-\" + Date.now() + \"-\" + index;\r",
+                      "pm.environment.set(\"transactionReference\", reference);\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "e5f072e9-2502-4ae4-9f06-8b24268815dc",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://postman-echo.com/get",
+                  "protocol": "https",
+                  "host": [
+                    "postman-echo",
+                    "com"
+                  ],
+                  "path": [
+                    "get"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Commission",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "a3e98f3f-fa6a-436e-84e7-b93a012196ef",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f27da74a-133f-49de-b6f7-d4b1a09a9808",
+                    "exec": [
+                      "pm.test(\"Commission fetched\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "// find commission for selected product\r",
+                      "const productId = pm.environment.get(\"productId\");\r",
+                      "\r",
+                      "const rule = res.data.find(c => c.ProductID == productId);\r",
+                      "\r",
+                      "if (rule) {\r",
+                      "    pm.environment.set(\"commissionPct\", rule.CommissionPercentage);\r",
+                      "}"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "2c9b69c7-2884-44e2-b823-3feb9715d01c",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/commissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "commissions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Wallet(Baseline V2)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9fa790eb-1c44-4179-a688-fe0e5bd17def",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8f151e34-eac1-4c1b-8d76-41d66b756cc7",
+                    "exec": [
+                      "pm.test(\"Wallet fetched\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.environment.set(\"balance_before\", res.data.Balance);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "d648dfd9-746d-4307-a17c-360ebc012336",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/wallets/{{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "wallets",
+                    "{{walletId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "f22b8899-ddb8-416b-804d-a7ecc3c885f1"
+        },
+        {
+          "name": "Single voucher flow(6)",
+          "item": [
+            {
+              "name": "Issue voucher",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "730c2754-79e8-4851-aac4-cda8d12e1a99",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7def5867-87bd-4516-ac7d-fdb12238f296",
+                    "exec": [
+                      "pm.test(\"Voucher issued\", () => pm.response.to.have.status(201));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.expect(res).to.have.property(\"status\");\r",
+                      "pm.expect(res).to.have.property(\"pin\");\r",
+                      "pm.expect(res).to.have.property(\"traceId\");"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "205851e2-a841-4058-b34f-8fa0ea0c47dc",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"walletId\": {{walletId}},\r\n  \"productId\": {{productId}},\r\n  \"reference\": \"{{transactionReference}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/distribution/issue-voucher",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "distribution",
+                    "issue-voucher"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Wallet After",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "91aa4d1d-5a84-4760-9b97-19daf5967260",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5cd30fd1-1103-4477-947c-11710929f3be",
+                    "exec": [
+                      "pm.test(\"Wallet fetched\", () => pm.response.to.have.status(200));\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.environment.set(\"balance_after\", res.data.Balance);\r",
+                      "\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "859d6c89-c6e3-41d8-98a7-a74295e83f89",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/wallets/{{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "wallets",
+                    "{{walletId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Transactions",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5dcb9b5d-1e64-4421-a057-e0890f0e74ba",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c379f60-a34c-4f88-8838-e78116cf44a6",
+                    "exec": [
+                      "pm.test(\"Transactions fetched\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "const transactionReference = pm.variables.get(\"transactionReference\"); \r",
+                      "const transactions = res.data.filter(t => t.ExternalReference === transactionReference);\r",
+                      "\r",
+                      "pm.expect(transactions.length).to.eql(1);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "ab1626d9-e007-4d0e-875e-577d26a27986",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transactions?walletId={{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletId",
+                      "value": "{{walletId}}",
+                      "uuid": "afbcde8b-4dc5-439d-b635-ca6b5c5c9033"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Verify Wallet Deduction",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2f54d9aa-abc1-4918-ab2c-8736c8a7ea2a",
+                    "exec": [
+                      "const before = parseFloat(pm.environment.get(\"balance_before\"));\r",
+                      "const after = parseFloat(pm.environment.get(\"balance_after\"));\r",
+                      "const faceValue = parseFloat(pm.environment.get(\"faceValue\"));\r",
+                      "\r",
+                      "pm.test(\"Wallet deducted correctly\", () => {\r",
+                      "    pm.expect(before - after).to.eql(faceValue);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b04c84b4-cb28-4a8f-9671-adc4098a6638",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "a115c876-3257-4b2f-8e72-7b9a92c3551b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/wallets/{{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "wallets",
+                    "{{walletId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Validate Commision",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "42303bef-e0e2-4682-862e-f890a457abb8",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "196c9de3-8010-4194-94ba-51e6f090f95b",
+                    "exec": [
+                      "pm.test(\"Transactions fetched\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "const transactionReference = pm.variables.get(\"transactionReference\"); \r",
+                      "const transaction = res.data.find(t => t.ExternalReference === transactionReference);\r",
+                      "\r",
+                      "const commissionPct = parseFloat(pm.environment.get(\"commissionPct\"));\r",
+                      "const faceValue = parseFloat(pm.environment.get(\"faceValue\"));\r",
+                      "\r",
+                      "const expectedCommission = (commissionPct / 100) * faceValue;\r",
+                      "\r",
+                      "// Example validation placeholder\r",
+                      "pm.test(\"Commission calculated correctly\", () => {\r",
+                      "    pm.expect(expectedCommission).to.eql(transaction.CommissionAmount);\r",
+                      "});\r",
+                      "\r",
+                      "let products = JSON.parse(pm.environment.get(\"products\"));\r",
+                      "let index = parseInt(pm.environment.get(\"productIndex\"));\r",
+                      "\r",
+                      "index++;\r",
+                      "\r",
+                      "if (index < products.length) {\r",
+                      "    pm.environment.set(\"productIndex\", index);\r",
+                      "    \r",
+                      "    pm.execution.setNextRequest(\"Set Product Context\");\r",
+                      "} else {\r",
+                      "    pm.execution.setNextRequest(null);\r",
+                      "}"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "3989e3c0-59ae-4c79-8a78-253b9dcf43f8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transactions?walletId={{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletId",
+                      "value": "{{walletId}}",
+                      "uuid": "2644aedc-9da9-4232-9546-509599e203d7"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "1a2156c6-3afc-4b0e-9032-172ca9214376"
+        },
+        {
+          "name": "Bulk Issue flow(7)",
+          "item": [
+            {
+              "name": "Transaction before",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8a5500e0-b5e6-4d84-9092-093a83c3afaa",
+                    "exec": [
+                      "pm.test(\"Transactions count\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.environment.set(\"transactions_before\", res.data.length);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "4cc12913-5acf-4ec4-8a95-05745baab0eb",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "045c43d6-437a-4eaf-ba16-e7f0c4c599f6",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transactions?walletId={{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletId",
+                      "value": "{{walletId}}",
+                      "uuid": "e893ba2c-1430-45f7-9730-a49b99fbdde5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Bulk Issue",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6f4e8125-9679-44df-b6dc-7f9ff5f5cc2c",
+                    "exec": [
+                      "pm.test(\"Bulk issued\", () => pm.response.to.have.status(201));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.environment.set(\"bulk_count\", res.count);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "0b049e19-9126-43ca-b20e-dfe70985908e",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "657657d1-9b96-4bac-ae0a-a2f5a4c76768",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"walletId\": {{walletId}},\r\n  \"productId\": {{productId}},\r\n  \"quantity\": 3\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/distribution/bulk-issue",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "distribution",
+                    "bulk-issue"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Validate Bulk count",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "bfd158fe-486f-4ed5-8541-ccfe8b1324eb",
+                    "exec": [
+                      "const count = pm.environment.get(\"bulk_count\");\r",
+                      "\r",
+                      "pm.test(\"Correct number of vouchers\", () => {\r",
+                      "    pm.expect(parseInt(count)).to.eql(3);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "59e80fbb-f3bb-4a81-8174-4d9c68634245",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "e7c7aeb4-09de-497e-92d8-44aba19694f2",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://postman-echo.com/get",
+                  "protocol": "https",
+                  "host": [
+                    "postman-echo",
+                    "com"
+                  ],
+                  "path": [
+                    "get"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Verify Bulk wallet deduction",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d9a38b73-1f4c-4032-9957-74b35849232d",
+                    "exec": [
+                      "const before = parseFloat(pm.environment.get(\"balance_before\"));\r",
+                      "const after = parseFloat(pm.environment.get(\"balance_after\"));\r",
+                      "const faceValue = parseFloat(pm.environment.get(\"faceValue\"));\r",
+                      "\r",
+                      "const count = pm.environment.get(\"bulk_count\");\r",
+                      "const expectedDeduction = faceValue * count;\r",
+                      "\r",
+                      "pm.test(\"Bulk deduction correct\", () => {\r",
+                      "   pm.expect(before - after).to.eql(expectedDeduction);\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9291a915-3c07-43f8-b897-c2c4fb9edace",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "09dda627-4fc6-4356-b8e7-f074e3dfce10",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://postman-echo.com/get",
+                  "protocol": "https",
+                  "host": [
+                    "postman-echo",
+                    "com"
+                  ],
+                  "path": [
+                    "get"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Transaction after",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8a5500e0-b5e6-4d84-9092-093a83c3afaa",
+                    "exec": [
+                      "pm.test(\"Transactions count\", () => pm.response.to.have.status(200));\r",
+                      "\r",
+                      "const res = pm.response.json();\r",
+                      "\r",
+                      "pm.environment.set(\"transactions_after\", res.data.length);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "4cc12913-5acf-4ec4-8a95-05745baab0eb",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "05d61254-58c1-47e9-accb-7c7f381ea243",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transactions?walletId={{walletId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "walletId",
+                      "value": "{{walletId}}",
+                      "uuid": "613ee37e-4474-422f-8676-7c93ae4176e8"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Verify transaction balk increase",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "774f9ff8-8f46-4777-a39f-a4194afd8f63",
+                    "exec": [
+                      "const before = pm.environment.get(\"transactions_before\");\r",
+                      "const after = pm.environment.get(\"transactions_after\");\r",
+                      "\r",
+                      "const count = pm.environment.get(\"bulk_count\");\r",
+                      "\r",
+                      "pm.test(\"Transactions increased after bulk\", () => {\r",
+                      "   pm.expect(after - before).to.eql(count);\r",
+                      "});\r",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "6acb229d-0821-4cd0-9c85-ccaa75e6bec0",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "b3ec283e-84e7-42b4-8eff-1d732df59d66",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://postman-echo.com/get",
+                  "protocol": "https",
+                  "host": [
+                    "postman-echo",
+                    "com"
+                  ],
+                  "path": [
+                    "get"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Insufficient Balance",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6f4e8125-9679-44df-b6dc-7f9ff5f5cc2c",
+                    "exec": [
+                      "pm.test(\"Should fail when insufficient balance\", () => {\r",
+                      "    pm.expect(pm.response.code).to.not.eql(201);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "0b049e19-9126-43ca-b20e-dfe70985908e",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "a3f88db3-c84d-4397-a0c3-daadcc0fa854",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"walletId\": {{InsufficientBalance_WalletID}},\r\n  \"productId\": {{productId}},\r\n  \"quantity\": 3\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/distribution/bulk-issue",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "distribution",
+                    "bulk-issue"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "743878cc-7029-498e-93b4-57d0eb09e9f9"
+        }
+      ],
+      "id": "a76cbc76-6655-4c63-9956-213844ad63ca"
+    }
+  ]
 }
