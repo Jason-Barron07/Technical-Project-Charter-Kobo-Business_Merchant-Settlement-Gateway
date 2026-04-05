@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Invalid top-up amount', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/wallet.html');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Wallet' }).click();
   await page.getByTestId('topup-btn').click();
