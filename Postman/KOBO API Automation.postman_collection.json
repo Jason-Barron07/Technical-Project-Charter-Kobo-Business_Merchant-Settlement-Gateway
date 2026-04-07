@@ -274,7 +274,8 @@
                       "\r",
                       "const res = pm.response.json();\r",
                       "\r",
-                      "pm.environment.set(\"balance_before\", res.data.Balance);"
+                      "pm.environment.set(\"balance_before\", res.data.Balance);\r",
+                      "pm.expect(pm.response.responseTime).to.be.below(500);"
                     ],
                     "type": "text/javascript",
                     "packages": {},
@@ -632,7 +633,7 @@
           "id": "1a2156c6-3afc-4b0e-9032-172ca9214376"
         },
         {
-          "name": "Bulk Issue flow(7)",
+          "name": "Bulk Issue flow(6)",
           "item": [
             {
               "name": "Transaction before",
@@ -980,17 +981,23 @@
                 }
               },
               "response": []
-            },
+            }
+          ],
+          "id": "743878cc-7029-498e-93b4-57d0eb09e9f9"
+        },
+        {
+          "name": "Negative Cases(3)",
+          "item": [
             {
-              "name": "Insufficient Balance",
+              "name": "Issue Voucher with Missing Fields",
               "event": [
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6f4e8125-9679-44df-b6dc-7f9ff5f5cc2c",
+                    "id": "cabd5277-68e7-4630-bbec-ca1d688d54e0",
                     "exec": [
-                      "pm.test(\"Should fail when insufficient balance\", () => {\r",
-                      "    pm.expect(pm.response.code).to.not.eql(201);\r",
+                      "pm.test(\"Missing fields rejected\", () => {\r",
+                      "    pm.response.to.have.status(400);\r",
                       "});"
                     ],
                     "type": "text/javascript",
@@ -1001,7 +1008,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "0b049e19-9126-43ca-b20e-dfe70985908e",
+                    "id": "b0ce83e8-07f4-469f-996b-373c0ad8d56e",
                     "exec": [
                       ""
                     ],
@@ -1011,23 +1018,13 @@
                   }
                 }
               ],
-              "id": "a3f88db3-c84d-4397-a0c3-daadcc0fa854",
+              "id": "59b34777-f870-4151-b34a-5ae449aecd4f",
               "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": [
-                    {
-                      "key": "token",
-                      "value": "{{token}}",
-                      "type": "string"
-                    }
-                  ]
-                },
                 "method": "POST",
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"walletId\": {{InsufficientBalance_WalletID}},\r\n  \"productId\": {{productId}},\r\n  \"quantity\": 3\r\n}",
+                  "raw": "{\r\n  \"walletId\": {{walletId}}\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1035,7 +1032,7 @@
                   }
                 },
                 "url": {
-                  "raw": "{{baseUrl}}/api/v1/distribution/bulk-issue",
+                  "raw": "{{baseUrl}}/api/v1/distribution/issue-voucher",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1043,14 +1040,130 @@
                     "api",
                     "v1",
                     "distribution",
-                    "bulk-issue"
+                    "issue-voucher"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Issue Voucher with Invalid Product",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c3542a92-2cfb-46de-bb27-e49eb2526187",
+                    "exec": [
+                      "pm.test(\"Invalid product rejected\", () => {\r",
+                      "    pm.response.to.have.status(500);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "0fdb6a56-9442-47dd-8d8a-dc7dd9aae1fa",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "5d6737e6-b82d-4254-950e-e2717f7b3517",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"walletId\": {{walletId}},\r\n  \"productId\": 99999,\r\n  \"reference\": \"BAD\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/distribution/issue-voucher",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "distribution",
+                    "issue-voucher"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Issue Voucher with Invalid Wallet",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c3542a92-2cfb-46de-bb27-e49eb2526187",
+                    "exec": [
+                      "pm.test(\"Invalid Wallet rejected\", () => {\r",
+                      "    pm.response.to.have.status(500);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "0fdb6a56-9442-47dd-8d8a-dc7dd9aae1fa",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "id": "af1b436c-344c-43d5-b4de-3a2eadf7e6c3",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"walletId\": 99999,\r\n  \"productId\": {{productId}},\r\n  \"reference\": \"BAD\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/distribution/issue-voucher",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "distribution",
+                    "issue-voucher"
                   ]
                 }
               },
               "response": []
             }
           ],
-          "id": "743878cc-7029-498e-93b4-57d0eb09e9f9"
+          "id": "d173040f-da27-473b-a7cc-f7beb62a3268"
         }
       ],
       "id": "a76cbc76-6655-4c63-9956-213844ad63ca"
