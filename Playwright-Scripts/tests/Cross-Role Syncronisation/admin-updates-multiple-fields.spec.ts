@@ -1,7 +1,7 @@
-// Import Playwright test utilities with authenticated admin session
+
 import { test, expect } from '../../Fixture/athenticated-state-logged-in'
 
-// Base URL of the application
+
 const baseURL: string = 'https://quality-engineering-labs.vercel.app/'
 
 // Test case: Admin updates business profile information and verifies success
