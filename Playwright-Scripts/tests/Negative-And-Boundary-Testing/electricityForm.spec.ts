@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Validate that the Electricity form requires a meter number. This ensures the system does not allow submission without a mandatory field
 test('Electricity form meter number validation', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Sell' }).click();
@@ -9,5 +10,5 @@ test('Electricity form meter number validation', async ({ page }) => {
   await page.getByTestId('quick-R500').click();
   await page.getByTestId('check-terms').check();
   await page.getByTestId('submit-btn').click();
-    await expect(page.getByTestId('error-meter')).toHaveText('Meter number is required');
+  await expect(page.getByTestId('error-meter')).toHaveText('Meter number is required');
 });
