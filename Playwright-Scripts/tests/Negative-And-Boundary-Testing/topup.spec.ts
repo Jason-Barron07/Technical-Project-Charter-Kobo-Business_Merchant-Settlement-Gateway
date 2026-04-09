@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Validate that top-up amount below minimum is rejected with an appropriate error message.
 test('Top-up amount minimum', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/wallet.html');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Wallet' }).click();

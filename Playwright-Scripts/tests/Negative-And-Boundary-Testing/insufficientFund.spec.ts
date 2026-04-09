@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Validate that a transfer fails when the amount exceeds available balance. This ensures the system correctly handles insufficient funds scenarios
 test('insufficient funds transfer', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Wallet' }).click();

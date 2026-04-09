@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Validate that an invalid phone number format is rejected. Ensures the system enforces proper South African phone number validation.
 test('Invalid phone number', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Sell' }).click();

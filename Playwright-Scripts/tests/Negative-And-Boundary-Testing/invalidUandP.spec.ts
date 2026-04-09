@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+// Test case: Validate that login fails with invalid credentials. This ensures the system properly handles authentication errors and provides appropriate feedback to users.
+test('Invalid login credentials', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/');
   await page.getByRole('link', { name: 'Account' }).click();
   await page.getByTestId('login-username').click();

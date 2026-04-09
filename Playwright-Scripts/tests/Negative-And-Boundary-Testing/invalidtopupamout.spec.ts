@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+//Test case: Validate that a negative top-up amount is rejected. This ensures the system enforces minimum top-up limits and prevents invalid transactions.
 test('Invalid top-up amount', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/wallet.html');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Wallet' }).click();

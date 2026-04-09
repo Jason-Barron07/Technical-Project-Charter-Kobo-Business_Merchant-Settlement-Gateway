@@ -1,5 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+
+// Test case: Boundary test for transfer amount
+// This verifies that a transfer at a valid upper boundary amount is processed successfully
 test('Boundary test for transfer', async ({ page }) => {
   await page.goto('https://quality-engineering-labs.vercel.app/');
   await page.getByLabel('Main navigation').getByRole('link', { name: 'Wallet' }).click();
