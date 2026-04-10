@@ -1,0 +1,1026 @@
+{
+  "info": {
+    "_postman_id": "8090e1c2-39c6-4339-b4b7-f8b22657a04c",
+    "name": "Kobo REQ/RESP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28851314"
+  },
+  "item": [
+    {
+      "name": "User Auth",
+      "item": [
+        {
+          "name": "Login - User 4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant4@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }, 
+            "url": {
+              "raw": "http://localhost:3000/api/v1/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant6@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 7",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant7@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 8",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant8@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 9",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant9@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 10",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant10@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 11",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant11@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 13",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant13@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 14",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant14@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 15",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant15@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 16",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant16@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 17",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant17@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 19",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant19@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 20",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwLCJlbWFpbCI6Im1lcmNoYW50MjBAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDIwIiwiaWF0IjoxNzc1Nzk3NzkzLCJleHAiOjE3NzU4ODQxOTN9.TZuT9BISCJWAqHnPaPGtz-vLvyezaAW0Yo2U3Q60tIA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant20@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - User 21",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIwLCJlbWFpbCI6Im1lcmNoYW50MjBAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDIwIiwiaWF0IjoxNzc1Nzk3NzkzLCJleHAiOjE3NzU4ODQxOTN9.TZuT9BISCJWAqHnPaPGtz-vLvyezaAW0Yo2U3Q60tIA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"merchant21@kobo.co.za\",\r\n    \"password\":\"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin Actions",
+      "item": [
+        {
+          "name": "Activate User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImVtYWlsIjoibWVyY2hhbnQ0QGtvYm8uY28uemEiLCJyb2xlIjoiTWVyY2hhbnQiLCJtc2lzZG4iOiIyNzcxMTAwMDAwNCIsImlhdCI6MTc3NTc5OTAxMywiZXhwIjoxNzc1ODg1NDEzfQ.1YbLz0xo8dPtg6lnKyVmhSjzfqSHFr29h58Zgk12KEo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/merchants/5/activate",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "merchants",
+                "5",
+                "activate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Suspend User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImVtYWlsIjoibWVyY2hhbnQ2QGtvYm8uY28uemEiLCJyb2xlIjoiTWVyY2hhbnQiLCJtc2lzZG4iOiIyNzcxMTAwMDAwNiIsImlhdCI6MTc3NTc5OTI1NywiZXhwIjoxNzc1ODg1NjU3fQ.TkynHpVojlG7P2LK-504VFIjO8lASTtIiKraM9CoPcg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/merchants/9/suspend",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "merchants",
+                "9",
+                "suspend"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deactivate User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImVtYWlsIjoibWVyY2hhbnQ3QGtvYm8uY28uemEiLCJyb2xlIjoiTWVyY2hhbnQiLCJtc2lzZG4iOiIyNzcxMTAwMDAwNyIsImlhdCI6MTc3NTc5OTM5MSwiZXhwIjoxNzc1ODg1NzkxfQ.5c4bqsGE0qFT9MmiIb9YBiH5KMM67GMNTSTpNKd-LmI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/merchants/11/deactivate",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "merchants",
+                "11",
+                "deactivate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImVtYWlsIjoibWVyY2hhbnQ4QGtvYm8uY28uemEiLCJyb2xlIjoiTWVyY2hhbnQiLCJtc2lzZG4iOiIyNzcxMTAwMDAwOCIsImlhdCI6MTc3NTc5OTU1MywiZXhwIjoxNzc1ODg1OTUzfQ.Aqp-U5vDXc0p98a1jVBZPXa0tiZ7i4ELuoUyNEIT_k8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"provider\":13,\r\n    \"sku\": \"MTN-50\",\r\n    \"description\": \"MTN R50 Airtime\",\r\n    \"faceValue\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImVtYWlsIjoibWVyY2hhbnQ5QGtvYm8uY28uemEiLCJyb2xlIjoiTWVyY2hhbnQiLCJtc2lzZG4iOiIyNzcxMTAwMDAwOSIsImlhdCI6MTc3NTc5NzQyNiwiZXhwIjoxNzc1ODgzODI2fQ.0iDskcqFWD-Lma0qkroZ1jlXCPsfwg_XGz1HZSqBPD8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"description\": \"string\",\r\n    \"faceValue\": 0,\r\n    \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/products/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "products",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TopUp Wallet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJlbWFpbCI6Im1lcmNoYW50MTBAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDEwIiwiaWF0IjoxNzc1Nzk3NDIzLCJleHAiOjE3NzU4ODM4MjN9.5TFI1SUyn_yTRgLEQI30TKd30FKDpjoNF8JUJyIGiFI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\": 1000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/wallets/15/topup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "wallets",
+                "15",
+                "topup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Commission Rule",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6Im1lcmNoYW50MTFAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDExIiwiaWF0IjoxNzc1Nzk3NDYzLCJleHAiOjE3NzU4ODM4NjN9.ujR0mkUICEt20o9Mf53zGR7LmRGC53GcjKAvTqVVFrM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\":1,\r\n    \"merchantTier\": \"Standard\",\r\n    \"commissionPercentage\":10.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/commissions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "commissions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Commission Rule",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6Im1lcmNoYW50MTFAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDExIiwiaWF0IjoxNzc1Nzk3NDYzLCJleHAiOjE3NzU4ODM4NjN9.ujR0mkUICEt20o9Mf53zGR7LmRGC53GcjKAvTqVVFrM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"commissionPercentage\":0,\r\n    \"isActive\":false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/commissions/15",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "commissions",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Commission Rule",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE0LCJlbWFpbCI6Im1lcmNoYW50MTRAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDE0IiwiaWF0IjoxNzc1Nzk3NTI5LCJleHAiOjE3NzU4ODM5Mjl9.6VugpLRlw_zFfyJQ-FwQIgTDDYbENh-foYrBqty7pBM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/commissions/15",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "commissions",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Calculate Settlements",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1LCJlbWFpbCI6Im1lcmNoYW50MTVAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDE1IiwiaWF0IjoxNzc1Nzk3NTY0LCJleHAiOjE3NzU4ODM5NjR9.d3_qs41_-5dZYPKmmTiNuuyDDb4ylCIg8vK25pmJa2s",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"merchantId\":1,\r\n    \"periodStart\": \"2024-01-01\",\r\n    \"periodEnd\": \"2024-01-31\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/settlements/calculate",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "settlements",
+                "calculate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Global Transaction Ledger Access",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJlbWFpbCI6Im1lcmNoYW50MTZAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDE2IiwiaWF0IjoxNzc1Nzk3NjE1LCJleHAiOjE3NzU4ODQwMTV9.U7rCozgg471WEzD0Asm_lql0C3fEHv7OYLwtq-rtWjs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/admin/ledger",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "ledger"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE3LCJlbWFpbCI6Im1lcmNoYW50MTdAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDE3IiwiaWF0IjoxNzc1Nzk3NjY1LCJleHAiOjE3NzU4ODQwNjV9.Sv3Y9CDTYS0wuzLgzwC75zbL98tYK6_hBquc3mzuFqI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/admin/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Merchants",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE5LCJlbWFpbCI6Im1lcmNoYW50MTlAa29iby5jby56YSIsInJvbGUiOiJNZXJjaGFudCIsIm1zaXNkbiI6IjI3NzExMDAwMDE5IiwiaWF0IjoxNzc1Nzk3NzEwLCJleHAiOjE3NzU4ODQxMTB9.lKf45cnaxzwRrYWOVuurZwJLUACE7yVapndwJd-06OA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/admin/merchants",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "merchants"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View Settlements",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Update Commission Rule For a Tier",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
