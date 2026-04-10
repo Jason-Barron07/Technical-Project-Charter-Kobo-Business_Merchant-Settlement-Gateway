@@ -1,5 +1,6 @@
   import { test, expect } from '@playwright/test';
-  
+ 
+  // Test case: Validate that adding a customer without a name triggers the correct validation error message
   test('Add customer with missing fields', async ({ page }) => {
     await page.goto('https://quality-engineering-labs.vercel.app/customers.html');
   
