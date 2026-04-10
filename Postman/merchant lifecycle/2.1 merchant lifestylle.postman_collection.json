@@ -1,0 +1,518 @@
+{
+  "info": {
+    "_postman_id": "80dd02fb-01f0-4325-8ca2-1127fc7fed11",
+    "name": "2.1 merchant lifestylle",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52066886",
+    "_collection_link": "https://go.postman.co/collection/52066886-80dd02fb-01f0-4325-8ca2-1127fc7fed11?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "NEW USER",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"msisdn\": \"27110009989\",\r\n  \"fullName\": \"John Doe\",\r\n  \"email\": \"john@kobo.co.za\",\r\n  \"password\": \"SecurePass1\",\r\n  \"role\": \"Merchant\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "duplicate MSISDN",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"msisdn\": \"27110009989\",\r\n  \"fullName\": \"John Doe\",\r\n  \"email\": \"john@kobo.co.za\",\r\n  \"password\": \"SecurePass1\",\r\n  \"role\": \"Merchant\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "weak password",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"msisdn\": \"27110009989\",\r\n  \"fullName\": \"John Doe\",\r\n  \"email\": \"john@kobo.co.za\",\r\n  \"password\": \"1111\",\r\n  \"role\": \"Merchant\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "empty fields",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"msisdn\": \"27110002989\",\r\n  \"fullName\": \"\",\r\n  \"email\": \"\",\r\n  \"password\": \"Pasutt8111\",\r\n  \"role\": \"Merchant\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "invalid email format",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"msisdn\": \"27110009989\",\r\n  \"fullName\": \"John Doe\",\r\n  \"email\": \"johnde\",\r\n  \"password\": \"SecurePass1\",\r\n  \"role\": \"Merchant\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"kabo@kobo.co.za\",\r\n  \"password\": \"Password123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get profile",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/auth/profile",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "profile"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get user using id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/users/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all merchants",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"businessName\": \"Kabo Traders\",\r\n  \"registrationNumber\": \"REG-2024-0100\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/merchants",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "merchants"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get wallet balance for merchant/validation",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/merchants/1/balance",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "merchants",
+            "1",
+            "balance"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "activate merchant",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/merchants/2/activate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "merchants",
+            "2",
+            "activate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "suspend merchant",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/merchants/1/suspend",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "merchants",
+            "1",
+            "suspend"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deactivate merchant",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/merchants/3/deactivate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "merchants",
+            "3",
+            "deactivate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "transactions for a merchant",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0Brb2JvLmNvLnphIiwicm9sZSI6IkFkbWluIiwibXNpc2RuIjoiMjcxMTAwMDAwMDEiLCJpYXQiOjE3NzU4MDc1NjQsImV4cCI6MTc3NTg5Mzk2NH0.FN-KCdHfKC6GY_UIyfot_0L6uzNLOFI6IlPFitDeN0o",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/merchants/1/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "merchants",
+            "1",
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
