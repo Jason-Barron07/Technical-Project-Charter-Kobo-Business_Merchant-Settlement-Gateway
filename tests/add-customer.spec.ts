@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that a merchant can successfully add a customer
+
 test('admin adds a customer', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/customers.html');

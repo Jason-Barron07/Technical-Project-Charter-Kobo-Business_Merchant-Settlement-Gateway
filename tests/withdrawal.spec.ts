@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that an admin can successfully request a withdrawal
+
 test('admin can withdraw amount', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/wallet.html');

@@ -1,6 +1,8 @@
 import {test, expect, Page} from '@playwright/test'
 
-test('admin can sall airtime', async ({ page }) => {
+// Test case: Verify that a merchant can successfully sell airtime
+
+test('admin can sell airtime', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/payment.html');
 

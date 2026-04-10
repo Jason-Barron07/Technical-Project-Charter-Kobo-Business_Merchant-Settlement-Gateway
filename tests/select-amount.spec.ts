@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that a merchant can select a predefined amount (R50)
+
 test('merchant can select amount', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/payment.html');

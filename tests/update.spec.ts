@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that an admin can successfully edit customer details
+
 test('admin can edit customer details', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/customers.html');

@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that a merchant can successfully make multiple purchases
+
 test('merchant can make multiple purchases', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/market.html');

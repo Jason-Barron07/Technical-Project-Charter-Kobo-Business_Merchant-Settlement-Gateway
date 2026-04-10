@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that a merchant can see the available balance.
+
 test('merchant can view balance', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/login.html');

@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that a admin can successfully transfer funds to another user.
+
 test('admin can transfer amount', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/wallet.html');

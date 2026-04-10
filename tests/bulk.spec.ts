@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// Test case: Verify that a merchant can purchase bulk voucher.
 test('admin can purchase in bulk', async ({ page }) => {
 
   await page.goto('https://quality-engineering-labs.vercel.app/market.html');
