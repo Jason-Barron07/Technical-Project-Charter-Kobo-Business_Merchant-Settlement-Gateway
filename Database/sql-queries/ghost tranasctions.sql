@@ -1,4 +1,4 @@
--- all transaction without a digital voucher
+-- returns all transaction without a digital voucher
 
 SELECT tl.*
 FROM TransactionLedger tl
@@ -7,7 +7,7 @@ LEFT JOIN DigitalVouchers dv
 WHERE tl.ProcessingStatus = 'Completed'
   AND dv.EntryID IS NULL;
 
-  -- wallet + user
+ --returns all ghost transactions with txn id, wallet id, username and amount 
 
  SELECT tl.EntryID, w.WalletID, u.UserID, u.FullName, tl.Amount
 FROM TransactionLedger tl
@@ -17,7 +17,7 @@ LEFT JOIN DigitalVouchers dv ON tl.EntryID = dv.EntryID
 WHERE tl.ProcessingStatus = 'Completed'
   AND dv.EntryID IS NULL; 
 
-  -- not exist
+-- returns all completed ghost transaction
 
  SELECT *
 FROM TransactionLedger tl
@@ -28,7 +28,7 @@ WHERE tl.ProcessingStatus = 'Completed'
       WHERE dv.EntryID = tl.EntryID
   );
 
-  -- count total ghost transaction
+  -- returns total count of ghost transactions
 
   SELECT COUNT(*) AS GhostTransactionCount
 FROM TransactionLedger tl
@@ -36,7 +36,7 @@ LEFT JOIN DigitalVouchers dv ON tl.EntryID = dv.EntryID
 WHERE tl.ProcessingStatus = 'Completed'
   AND dv.EntryID IS NULL;
 
-  -- sum of ghost tranasctions
+  -- returns total sum amount of ghost tranasctions
 
   SELECT SUM(tl.Amount) AS TotalGhostValue
 FROM TransactionLedger tl
@@ -44,7 +44,7 @@ LEFT JOIN DigitalVouchers dv ON tl.EntryID = dv.EntryID
 WHERE tl.ProcessingStatus = 'Completed'
   AND dv.EntryID IS NULL;
 
-  -- ghost transactions per user/names and count
+ -- returns ghost transactions per user
 
 SELECT u.UserID, u.FullName, COUNT(*) AS GhostCount
 FROM TransactionLedger tl
@@ -55,7 +55,7 @@ WHERE tl.ProcessingStatus = 'Completed'
   AND dv.EntryID IS NULL
 GROUP BY u.UserID, u.FullName;  
 
--- recent ghost transactions/by desc timestamp
+-- returns ghost transactions from most recent to oldest
 
 SELECT *
 FROM TransactionLedger tl
@@ -65,7 +65,7 @@ WHERE tl.ProcessingStatus = 'Completed'
   )
 ORDER BY tl.CreatedTimestamp DESC;
 
--- ghost by product
+-- returns  how many transactions by grouping product description and counting how many such missing voucher records exist per product.
 
 SELECT p.Description, COUNT(*) AS GhostCount
 FROM TransactionLedger tl
@@ -75,7 +75,7 @@ WHERE tl.ProcessingStatus = 'Completed'
   AND dv.EntryID IS NULL
 GROUP BY p.Description;
 
--- except method/entryId for ghosts
+-- returns entry ids for completed ghost transactions
 
 SELECT EntryID
 FROM TransactionLedger
@@ -86,7 +86,7 @@ EXCEPT
 SELECT EntryID
 FROM DigitalVouchers;
 
---zero associated digital vouchers
+-- returns ghost transactions that have zero voucher count
 
 SELECT *
 FROM (
@@ -98,7 +98,7 @@ FROM (
 ) t
 WHERE voucher_count = 0;
 
--- ghost for disabled users
+-- returns ghost transactions for disabled users
 
 SELECT tl.EntryID, u.UserID, u.ServiceStatus
 FROM TransactionLedger tl
@@ -109,7 +109,7 @@ WHERE dv.EntryID IS NULL
   AND tl.ProcessingStatus = 'Completed'
   AND u.ServiceStatus IN ('Disabled', 'Suspended');
 
-  -- ghost with duplicate references
+  -- ghost transactions with duplicate references
 
   SELECT tl.ExternalReference, COUNT(*) AS CountRef
 FROM TransactionLedger tl
@@ -119,7 +119,7 @@ WHERE dv.EntryID IS NULL
 GROUP BY tl.ExternalReference
 HAVING COUNT(*) > 1;
 
--- time-based anomaly detection
+-- returns daily count of ghost transactions completed
 
 SELECT CAST(tl.CreatedTimestamp AS DATE) AS TxDate, COUNT(*) AS Ghosts
 FROM TransactionLedger tl
@@ -129,7 +129,7 @@ WHERE dv.EntryID IS NULL
 GROUP BY CAST(tl.CreatedTimestamp AS DATE)
 ORDER BY TxDate;
 
---joins with commissions
+-- returns list of all ghost tramsactions with amount and commission
 
 SELECT tl.EntryID, tl.Amount, tl.CommissionAmount
 FROM TransactionLedger tl
@@ -137,7 +137,7 @@ LEFT JOIN DigitalVouchers dv ON tl.EntryID = dv.EntryID
 WHERE dv.EntryID IS NULL
   AND tl.ProcessingStatus = 'Completed';
 
-  -- full audit reconcilliation query 
+  -- returns detailed report for ghost transactions
 
   SELECT 
     tl.EntryID,
