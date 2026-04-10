@@ -1,9 +1,9 @@
-import {test, expect} from '../../Fixture/athenticated-state-logged-in'
+import {test, expect} from '@playwright/test'
 
 const baseURL: string = 'https://quality-engineering-labs.vercel.app/'
 
 // Test case: Admin selects card payment method and successfully performs a wallet top-up
-test('Admin tops up wallet using card method', async ({ loggedinState, page }) => {
+test('Admin tops up wallet using card method', async ({  page }) => {
 
 
 // Navigate to wallet page (admin already authenticated via fixture)

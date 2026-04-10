@@ -1,5 +1,5 @@
 
-import { test, expect } from '../../Fixture/athenticated-state-logged-in'
+import { test, expect } from '@playwright/test'
 
 
 const baseURL: string = 'https://quality-engineering-labs.vercel.app/'
